@@ -1,8 +1,8 @@
 import time
-import logging
+
 
 # TODO add redis
-
+# TODO fix ban/unban lock
 class F2BParser:
     def __init__(self, f2b_logfile_path, ips_file_path):
 
