@@ -2,6 +2,14 @@ import json
 from json import JSONDecodeError
 from pathlib import Path
 from typing import List
+from redis import Redis
+
+
+def get_redis():
+    r = Redis(host=get_option_from_config(['redis_host'], 'localhost'),
+              port=get_option_from_config(['redis_port'], 6379),
+              password=get_option_from_config(['redis_password'], ''))
+    return r
 
 
 def load_json(file):
@@ -16,7 +24,7 @@ def load_json(file):
 
 
 def get_config():
-    config = load_json(Path(__file__).parent / 'config.json')
+    config = load_json(Path(__file__).parent / '..' / 'config.json')
     return config
 
 
@@ -33,4 +41,3 @@ def get_option_from_config(option_path: List[str], default_value=None, config=No
             return default_value
 
     return d
-

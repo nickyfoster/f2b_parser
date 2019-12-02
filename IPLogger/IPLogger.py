@@ -1,14 +1,12 @@
-class IPLogger:
-    IP_DATA_TEMPLATE = {
-        "IP": "0.0.0.0",
-        "Location": "UK",
-        "Last_accessed": 15000000,
-        "Is_banned": True,
-        "Provider": "Telecom",
-    }
+from ipwhois import IPWhois
 
+
+class IPLogger:
     def __init__(self):
-        pass
+        self.obj = IPWhois("146.185.181.37")
+        self.ret = self.obj.lookup_rdap(depth=1)
+        print(self.ret['asn_country_code'])
+        print(self.ret['asn_description'])
 
     def get_ip_from_log(self):
         pass
@@ -16,7 +14,7 @@ class IPLogger:
     def get_logfile(self):
         pass
 
-    def get_ip_data(self):
+    def get_ip_data(self, data):
         pass
 
     def save_ip_data(self):

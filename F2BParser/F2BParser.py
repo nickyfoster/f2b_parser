@@ -1,15 +1,15 @@
 import time
 import datetime
+from utils.utils import get_redis, get_option_from_config
 
-
-# TODO add redis
 
 class F2BParser:
-    def __init__(self, f2b_logfile_path, ips_file_path):
-
-        self.f2b_logfile_path = f2b_logfile_path
-        self.ips_file_path = ips_file_path
-
+    def __init__(self, f2b_logfile_path=None, ips_file_path=None):
+        self.redis = get_redis()
+        self.f2b_logfile_path = get_option_from_config(
+            ["F2B_logfile_path"]) if f2b_logfile_path is None else f2b_logfile_path
+        self.ips_file_path = get_option_from_config(["IPs_logfile_path"]) if ips_file_path is None else ips_file_path
+        print(self.f2b_logfile_path, 1)
         self.main_loop()
 
     def main_loop(self):
@@ -28,16 +28,13 @@ class F2BParser:
         for ip in banned_ips:
             if ip not in current_ips:
                 try:
-                    print(f"Adding {ip} to list")
                     if unbanned_ips[ip] < banned_ips[ip]:
                         self.__add_ip(ip=ip)
                 except KeyError:
                     self.__add_ip(ip=ip)
-
         for ip in unbanned_ips:
             if ip in current_ips:
                 try:
-                    print(f"Removing {ip} from list")
                     if unbanned_ips[ip] > banned_ips[ip]:
                         self.__delete_ip(ip=ip)
                 except KeyError:
@@ -77,6 +74,7 @@ class F2BParser:
         return unbanned_ips_list
 
     def __delete_ip(self, ip: str):
+        print(f"Removing {ip} from list")
         lines = self.__get_ips_log()
         with open(self.ips_file_path, "w") as f:
             for line in lines:
@@ -84,9 +82,9 @@ class F2BParser:
                     f.write(line + '\n')
 
     def __add_ip(self, ip: str):
+        print(f"Adding {ip} to list")
         with open(self.ips_file_path, 'a') as f:
             f.write(ip + '\n')
 
 
-parser = F2BParser(f2b_logfile_path='F2BParser/fail2ban.log', ips_file_path='tmp.txt')
-parser.test()
+parser = F2BParser()

@@ -1,4 +1,7 @@
 {
-  "F2B_logfile_path": "123",
-  "IPs_logfile_path": "None"
+  "F2B_logfile_path": "resources/fail2ban.log",
+  "IPs_logfile_path": "resources/tmp.txt",
+  "redis_host": "localhost",
+  "redis_port": 6379,
+  "redis_password": ""
 }
