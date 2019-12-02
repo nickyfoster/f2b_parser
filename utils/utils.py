@@ -1,8 +1,15 @@
+import datetime
 import json
+import time
 from json import JSONDecodeError
 from pathlib import Path
 from typing import List
 from redis import Redis
+
+
+def convert_str_datetime_to_ts(str_datetime: str):
+    res = time.mktime(datetime.datetime.strptime(str_datetime, "%Y-%m-%d %H:%M:%S,%f").timetuple())
+    return res
 
 
 def get_redis():
