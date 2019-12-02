@@ -3,7 +3,7 @@ import time
 import os
 from F2BParser.F2BParser import F2BParser
 from test.env import F2B_LOGFILE, TMP_F2B_LOGFILE
-from f2b_parser.utils.utils import get_redis
+from utils.utils import get_redis
 
 
 class TestRedis(unittest.TestCase):
