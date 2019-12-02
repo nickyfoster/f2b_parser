@@ -3,7 +3,7 @@ import datetime
 
 
 # TODO add redis
-# TODO fix ban/unban lock
+
 class F2BParser:
     def __init__(self, f2b_logfile_path, ips_file_path):
 
@@ -28,8 +28,8 @@ class F2BParser:
         for ip in banned_ips:
             if ip not in current_ips:
                 try:
+                    print(f"Adding {ip} to list")
                     if unbanned_ips[ip] < banned_ips[ip]:
-                        print(f"Adding {ip} to list")
                         self.__add_ip(ip=ip)
                 except KeyError:
                     self.__add_ip(ip=ip)
@@ -37,8 +37,8 @@ class F2BParser:
         for ip in unbanned_ips:
             if ip in current_ips:
                 try:
+                    print(f"Removing {ip} from list")
                     if unbanned_ips[ip] > banned_ips[ip]:
-                        print(f"Removing {ip} from list")
                         self.__delete_ip(ip=ip)
                 except KeyError:
                     self.__delete_ip(ip=ip)
