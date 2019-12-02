@@ -12,10 +12,11 @@ def convert_str_datetime_to_ts(str_datetime: str):
     return res
 
 
-def get_redis():
+def get_redis(db=0):
     r = Redis(host=get_option_from_config(['redis_host'], 'localhost'),
               port=get_option_from_config(['redis_port'], 6379),
-              password=get_option_from_config(['redis_password'], ''))
+              password=get_option_from_config(['redis_password'], ''),
+              db=db)
     return r
 
 

@@ -1,0 +1,4 @@
+2069-01-01 00:00:01,000 fail2ban.filter         [14888]: INFO    [sshd] Found 0.0.0.0 - 2069-01-01 00:00:01
+2069-01-01 00:00:02,000 fail2ban.actions        [14888]: NOTICE  [sshd] Ban 0.0.0.0
+2069-01-01 00:00:03,000 fail2ban.filter         [14888]: INFO    [sshd] Found 0.0.0.1 - 2069-01-01 00:00:03
+2069-01-01 00:00:04,000 fail2ban.actions        [14888]: NOTICE  [sshd] Ban 0.0.0.1
