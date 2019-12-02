@@ -1,9 +1,9 @@
-import sys, os
-myPath = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, myPath + '/../')
 import unittest
 import time
 import os
+import sys
+myPath = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, myPath + '/../')
 from F2BParser.F2BParser import F2BParser
 from test.env import F2B_LOGFILE, TMP_F2B_LOGFILE
 from utils.utils import get_redis
