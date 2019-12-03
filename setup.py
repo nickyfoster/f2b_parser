@@ -32,7 +32,9 @@ setup(
     packages=find_packages(exclude=['test', 'test.*']),
     install_requires=[
         "redis==3.3.8",
-        "ipwhois==1.1.0"
+        "ipwhois==1.1.0",
+        "influxdb==5.2.3",
+        "pygeohash"
     ],
     cmdclass={
         'develop': PostDevelopCommand,
