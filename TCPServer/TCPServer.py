@@ -26,3 +26,7 @@ class TCPServer:
             print(data)
         self.conn.close()
         print("Server stopped")
+
+
+if __name__ == '__main__':
+    TCPServer().run_server()
