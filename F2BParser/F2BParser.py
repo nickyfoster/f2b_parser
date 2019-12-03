@@ -3,10 +3,12 @@ import time
 from utils.utils import get_redis, get_option_from_config, convert_str_datetime_to_ts
 
 
+# TODO add influxBD and grafana
 class F2BParser:
     """
     Class for scanning f2b logfile and adding/removing data to redis db
     """
+
     def __init__(self, f2b_logfile_path=None, db=0):
         """
 

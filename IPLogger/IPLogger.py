@@ -1,5 +1,6 @@
 from ipwhois import IPWhois
 
+# GET https://api.ipgeolocationapi.com/geolocate/0.0.0.0
 
 class IPLogger:
     def __init__(self):
