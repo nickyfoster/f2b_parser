@@ -32,7 +32,7 @@ def load_json(file):
 
 
 def get_config():
-    config = load_json(Path(__file__).parent / '..' / 'config.json')
+    config = load_json(Path(__file__).parent / '..' / '..' / 'config.json')
     return config
 
 

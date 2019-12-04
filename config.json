@@ -1,6 +1,6 @@
 {
-  "F2B_logfile_path": "resources/fail2ban.log",
-  "redis_host": "localhost",
+  "F2B_logfile_path": "/var/log/fail2ban.log",
+  "redis_host": "127.0.0.1",
   "redis_port": 6379,
   "redis_password": ""
 }
