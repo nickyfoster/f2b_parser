@@ -13,7 +13,7 @@ class TestRedis(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.redis_test_db_number = 14
-        cls.F2bParser = F2BParser(f2b_logfile_path=TMP_F2B_LOGFILE, db=cls.redis_test_db_number)
+        cls.F2bParser = F2BParser.F2BParser(f2b_logfile_path=TMP_F2B_LOGFILE, db=cls.redis_test_db_number)
         cls.redis = get_redis(db=cls.redis_test_db_number)
         cls.redis.flushall()
         cls.generate_f2b_logfile(cls)
