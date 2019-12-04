@@ -14,7 +14,7 @@ class TCPServer:
         self.sock = socket.socket()
         self.running = True
         self.data = None
-        self.client = InfluxDBClient('localhost', port=8086, database='f2b_logs')
+        self.client = InfluxDBClient('0.0.0.0', port=8086, database='f2b_logs')
 
     def run_server(self):
         print(f"Starting TCP server on port {self.port}")

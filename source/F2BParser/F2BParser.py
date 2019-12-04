@@ -1,6 +1,6 @@
 import threading
 import time
-from utils.utils import get_redis, get_option_from_config, convert_str_datetime_to_ts
+from source.utils.utils import get_redis, get_option_from_config, convert_str_datetime_to_ts
 
 
 class F2BParser:
