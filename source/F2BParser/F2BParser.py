@@ -19,6 +19,9 @@ class F2BParser:
             ["F2B_logfile_path"]) if f2b_logfile_path is None else f2b_logfile_path
         self.running = True
 
+    def __repr__(self):
+        return "F2BParser"
+
     def main_loop(self):
         """
         Main loop, where constant monitoring happens
