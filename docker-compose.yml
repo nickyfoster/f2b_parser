@@ -1,0 +1,10 @@
+version: "3.2"
+services:
+  f2b_parser:
+    build: .
+    command: python TCPServer/TCPServer.py
+    volumes:
+      - .:/code
+    ports:
+      - 7070:7070
+
