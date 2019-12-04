@@ -25,7 +25,9 @@ class F2BParser:
         :return: None
         """
         thread = threading.Thread(target=self.__update_ips_logfile, args=())
+        # thread.daemon = True
         thread.start()
+
 
     def __update_ips_logfile(self):
         """
@@ -110,3 +112,4 @@ class F2BParser:
 
 if __name__ == "__main__":
     parser = F2BParser()
+    parser.main_loop()
