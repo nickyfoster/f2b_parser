@@ -8,7 +8,7 @@ import urllib.request
 class TCPServer:
     BUFFER_SIZE = 1024
 
-    def __init__(self, host='', port=7070):
+    def __init__(self, host='127.0.0.1', port=7070):
         self.host = host
         self.port = port
         self.sock = socket.socket()
@@ -34,7 +34,11 @@ class TCPServer:
         print("Server stopped")
 
     def get_data(self, data):
-        data = json.loads(data)
+        try:
+            data = json.loads(data)
+        except Exception as e:
+            print(e)
+            return None
         if "**NO MATCH**" in data.values():
             return None
         else:

@@ -43,6 +43,7 @@ class F2BParser:
             for ip in banned_ips:
                 if not self.redis.exists(ip):
                     try:
+                        print(unbanned_ips[ip], banned_ips[ip])
                         if unbanned_ips[ip] < banned_ips[ip]:
                             self.__add_ip(ip=ip, ts=banned_ips[ip])
                     except KeyError:
