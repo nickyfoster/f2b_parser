@@ -31,7 +31,7 @@ setup(
     keywords='fail2ban python parser',
     packages=find_packages(exclude=['test', 'test.*']),
     install_requires=[
-        "redis==3.3.8",
+        "redis==4.5.3",
         "ipwhois==1.1.0",
         "influxdb==5.2.3",
         "pygeohash"
